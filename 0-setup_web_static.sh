@@ -11,3 +11,6 @@ sudo chown -hR ubuntu:ubuntu /data/
 conf="\\\n\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}"
 sudo sed -i "45i $conf" /etc/nginx/sites-available/default
 sudo service nginx start
+chown -R ubuntu:ubuntu /data
+sudo sed -i '39 i\ \tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t}\n' /etc/nginx/sites-enabled/default
+sudo service nginx restart
